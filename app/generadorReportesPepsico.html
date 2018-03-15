@@ -143,7 +143,7 @@
                   var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
                   tmpElementoFechas.href = data_type + ', ' + tabla_html;
                   //Asignamos el nombre a nuestro EXCEL
-                  tmpElementoFechas.download = 'GeneradorReportesxFechas.xls' + Data.start + Data.end;
+                  tmpElementoFechas.download = 'GeneradorReportesxFechas.xls';
                   // Simulamos el click al elemento creado para descargarlo
                   tmpElementoFechas.click();
                 }
