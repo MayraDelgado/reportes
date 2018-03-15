@@ -35,6 +35,9 @@
 .material-icons {
     font-size: 30px;
 }
-.datepicker {
-    z-index: -1;
+div {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
 }
