@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Generador de Reportes</title>
+
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="../bower_components/angular-material-expansion-panel/dist/md-expansion-panel.min.css">
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-aria/angular-aria.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/bower_components/angular-material/angular-material.js"></script>
+  <script src="/bower_components/angular-material-expansion-panel/dist/md-expansion-panel.js"></script>
+  <link href="/bower_components/angular-material-data-table/dist/md-data-table.min.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+  <script src="/bower_components/moment/min/moment.min.js"></script>
+  <link rel="stylesheet" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
+  <script src="/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="/bower_components/jquery-table2excel/src/jquery.table2excel.js"></script>
+
+  <script>
+    $("button").click(function () {
+      $("#fechaInstalacion").table2excel({
+        filename: "miarchivo"
+
+      });
+    });
+  </script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/datosController.js"></script>
+  <!-- endbuild -->
+
+</head>
+
+<body>
+
+  <div id="generadorReportesPepsico" class="hidden">
+
+    <header class="geotabPageHeader">
+      <h1 class="geotabPageName">Generador de Reportes
+        <span class="subdued">sub title</span>
+      </h1>
+      <div class="pageNameSecondary">
+        <h3 class="geotabSecondaryTitle">by:
+          <span id="generadorReportesPepsico-user"></span>
+        </h3>
+      </div>
+    </header>
+    <div layout="row" layout-md="column" ng-controller="accesoDatosController">
+      <div flex>
+        <br>
+        <br>
+        <!--Panel consulta por fechas de instalacion-->
+        <md-expansion-panel md-component-id="panelOne">
+          <md-expansion-panel-collapsed>
+            <div class="md-summary" style="color:rgb(10, 82, 125)">
+              <font size="3">CONSULTA POR FECHA DE INSTALACIÓN</font>
+            </div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+          </md-expansion-panel-collapsed>
+          <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+              <div class="md-summary" style="color:rgb(10, 82, 125)">
+                <font size="3">Consulta por fecha de instalación</font>
+              </div>
+              <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+              <!--fecha inicio-->
+              <div layout="row" layout-xs="column">
+                <div flex>
+                  <div class="container">
+                    <md-content layout-padding>
+                      <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                          <h4>Fecha inicio</h4>
+                          <md-datepicker ng-model="Data.start" md-placeholder="Enter date"></md-datepicker>
+                        </div>
+                      </div>
+                    </md-content>
+                  </div>
+                </div>
+                <!--fin fechas inicio-->
+                <!--inicio fechas fin-->
+                <div flex>
+                  <div class="container">
+                    <md-content layout-padding>
+                      <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                          <h4>Fecha fin</h4>
+                          <md-datepicker ng-model="Data.end" md-placeholder="Enter date"></md-datepicker>
+                        </div>
+                      </div>
+                    </md-content>
+                  </div>
+                  <!--boton consultar-->
+                  <md-expansion-panel-footer>
+                    <div flex></div>
+                    <md-button class="md-warn md-raised" ng-click="consultaReporteFechas()">Consultar</md-button>
+                  </md-expansion-panel-footer>
+                </div>
+                <!--fin fechas fin-->
+              </div>
+              <!--boton consultar-->
+              <md-expansion-panel-footer>
+                <div flex></div>
+                <acronym title="File download">
+                  <md-button id="fechaInstalacion" class="md-primary md-hue-1" onclick="crearCSVFechas()">
+                    <i class="material-icons" style="color:rgb(21, 87, 5)">file_download</i>
+                  </md-button>
+                </acronym>
+              </md-expansion-panel-footer>
+              <script type="text/javascript">
+                function crearCSVFechas() {
+                  //Creamos un Elemento Temporal en forma de enlace
+                  var tmpElementoFechas = document.createElement('a');
+                  // obtenemos la información desde el div que lo contiene en el html
+                  // Obtenemos la información de la tabla
+                  var data_type = 'data:application/vnd.ms-excel';
+                  var tabla_div = document.getElementById('tabletocsvFechas');
+                  var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
+                  tmpElementoFechas.href = data_type + ', ' + tabla_html;
+                  //Asignamos el nombre a nuestro EXCEL
+                  tmpElementoFechas.download = 'GeneradorReportesxFechas.xls' + Data.start + Data.end;
+                  // Simulamos el click al elemento creado para descargarlo
+                  tmpElementoFechas.click();
+                }
+              </script>
+              <!--fin btn consultar-->
+              <md-table-container>
+                <!--ng-model="selected" esto va en la tabla-->
+                <table md-table md-row-select ng-model="selected" md-progress="promise" id="tabletocsvFechas">
+                  <thead md-head>
+                    <tr md-row>
+                      <th md-column md-numeric>Geotab Id</th>
+                      <th md-column md-numeric>VIN </th>
+                      <th md-column md-numeric>Geotab Numero de serie</th>
+                      <th md-column md-numeric>Geotab Ultima comunicación Geotab</th>
+                      <th md-column md-numeric>Geotab boton de panico</th>
+                      <th md-column md-numeric>Cinturon de seguridad</th>
+                      <th md-column md-numeric>Reversa</th>
+                      <th md-column md-numeric>Aux 5</th>
+                      <th md-column md-numeric>Aux 6</th>
+                      <th md-column md-numeric>Aux 7</th>
+                      <th md-column md-numeric>Aux 8</th>
+                      <th md-column md-numeric>Circulo de seguridad</th>
+                      <th md-column md-numeric>sunTech Id</th>
+                      <th md-column md-numeric>sunTech Boton de panico</th>
+                      <th md-column md-numeric>Llamada en cabina</th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr md-row md-select-id="name" md-auto-select ng-repeat="dispositivo in resultReporteFechas">
+                      <td md-cell>{{dispositivo.GOId}}</td>
+                      <td md-cell>{{dispositivo.vehicleIdentificationNumber}}</td>
+                      <td md-cell>{{dispositivo.GOSerialNumber}}</td>
+                      <td md-cell>{{dispositivo.LastCommunication}}</td>
+                      <td md-cell>{{dispositivo.GOPanicButton}}</td>
+                      <td md-cell>{{dispositivo.GOBelt}}</td>
+                      <td md-cell>{{dispositivo.GOReverse}}</td>
+                      <td md-cell>{{dispositivo.GOButton1}}</td>
+                      <td md-cell>{{dispositivo.GOButton2}}</td>
+                      <td md-cell>{{dispositivo.GOButton3}}</td>
+                      <td md-cell>{{dispositivo.GOButton4}}</td>
+                      <td md-cell>{{dispositivo.GOSafetyCircle}}</td>
+                      <td md-cell>{{dispositivo.SunTechId}}</td>
+                      <td md-cell>{{dispositivo.SunTechPanicButton}}</td>
+                      <td md-cell>{{dispositivo.SunTechCalls}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-table-container>
+
+              <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-page-select></md-table-pagination>
+
+            </md-expansion-panel-content>
+            <!--btn cerrar panel-->
+            <md-expansion-panel-footer>
+              <div flex></div>
+              <md-button class="md-warn" ng-click="$panel.collapse()">Ocultar</md-button>
+            </md-expansion-panel-footer>
+            <!--fin btn cerrar panel-->
+          </md-expansion-panel-expanded>
+        </md-expansion-panel>
+        <!--fin consultas por fecha de instalacion-->
+        <br>
+        <!--inicio panel consulta por vehiculo-->
+        <md-expansion-panel md-component-id="panelOne">
+          <md-expansion-panel-collapsed>
+            <div class="md-summary" style="color:rgb(10, 82, 125)">
+              <font size="3">CONSULTA POR VEHÍCULO</font>
+            </div>
+            <md-expansion-panel-icon></md-expansion-panel-icon>
+          </md-expansion-panel-collapsed>
+          <md-expansion-panel-expanded>
+            <md-expansion-panel-header>
+              <div class="md-summary" style="color:rgb(10, 82, 125)">
+                <font size="3">Consulta por Vehículo</font>
+              </div>
+              <md-expansion-panel-icon></md-expansion-panel-icon>
+            </md-expansion-panel-header>
+            <md-expansion-panel-content>
+              <div layout="row">
+                <md-input-container flex="50">
+                  <small class="md-caption">
+                    <md-select multiple name="field" ng-model="dispositivoSeleccionado" placeholder="Seleccionar dispositivos..." data-md-container-class="selectdemoSelectHeader">
+                      <md-select-header layout="column" class="demo-select-header">
+                        <md-input-container>
+                          <input ng-model="busqueda" type="search" ng-model-options="{debounce: {'default': 1000, 'blur': 0}}" placeholder="Buscar dispositivos..."
+                            class="demo-header-searchbox md-text" ng-keydown="updateSearch($event)" />
+                        </md-input-container>
+                      </md-select-header>
+                      <md-option ng-repeat="dispositivo in lstDeviceGeotab | filter: busqueda" ng-value="{{dispositivo}}">{{dispositivo.name}}</md-option>
+                    </md-select>
+                    <div ng-messages="form.field.$error">
+                    </div>
+                  </small>
+                </md-input-container>
+              </div>
+
+
+              <!--fecha inicio-->
+              <div layout="row" layout-xs="column">
+                <div flex>
+                  <div class="container">
+                    <md-content layout-padding>
+                      <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                          <h4>Fecha inicio</h4>
+                          <md-datepicker ng-model="Data.start" md-placeholder="Enter date"></md-datepicker>
+                        </div>
+                      </div>
+                    </md-content>
+                  </div>
+                </div>
+                <!--fin fechas inicio-->
+                <!--inicio fechas fin-->
+                <div flex>
+                  <div class="container">
+                    <md-content layout-padding>
+                      <div layout-gt-xs="row">
+                        <div flex-gt-xs>
+                          <h4>Fecha fin</h4>
+                          <md-datepicker ng-model="Data.end" md-placeholder="Enter date"></md-datepicker>
+                        </div>
+                      </div>
+                    </md-content>
+                  </div>
+                  <!--boton consultar-->
+                  <md-expansion-panel-footer>
+                    <div flex></div>
+                    <md-button class="md-warn md-raised" ng-click="consultaVehiculos()">Consultar</md-button>
+                  </md-expansion-panel-footer>
+                </div>
+                <!--fin fechas fin-->
+              </div>
+              <!--boton consultar-->
+              <md-expansion-panel-footer>
+                <div flex></div>
+                <acronym title="File download">
+                  <md-button id="fechaVehiculo" class="md-primary md-hue-1" onclick="crearCSVvehiculo()">
+                    <i class="material-icons" style="color:rgb(21, 87, 5)">file_download</i>
+                  </md-button>
+                </acronym>
+              </md-expansion-panel-footer>
+
+              <script type="text/javascript">
+                function crearCSVvehiculo() {
+                  //Creamos un Elemento Temporal en forma de enlace
+                  var tmpElemento = document.createElement('a');
+                  // obtenemos la información desde el div que lo contiene en el html
+                  // Obtenemos la información de la tabla
+                  var data_type = 'data:application/vnd.ms-excel';
+                  var tabla_div = document.getElementById('tabletocsvVehiculo');
+                  var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
+                  tmpElemento.href = data_type + ', ' + tabla_html;
+                  //Asignamos el nombre a nuestro EXCEL
+                  tmpElemento.download = 'GeneradorReportesxVehiculos.xls';
+                  // Simulamos el click al elemento creado para descargarlo
+                  tmpElemento.click();
+                }
+              </script>
+              <!--fin btn consultar-->
+              <md-table-container>
+                <!--ng-model="selected" esto va en la tabla-->
+                <table md-table md-row-select md-progress="promise" id="tabletocsvVehiculo">
+                  <thead md-head>
+                    <tr md-row>
+                      <th md-column md-numeric>Geotab Id</th>
+                      <th md-column md-numeric>VIN </th>
+                      <th md-column md-numeric>Geotab Numero de serie</th>
+                      <th md-column md-numeric>Geotab Ultima comunicación Geotab</th>
+                      <th md-column md-numeric>Geotab boton de panico</th>
+                      <th md-column md-numeric>Cinturon de seguridad</th>
+                      <th md-column md-numeric>Reversa</th>
+                      <th md-column md-numeric>CS1</th>
+                      <th md-column md-numeric>CS2</th>
+                      <th md-column md-numeric>CS3</th>
+                      <th md-column md-numeric>CS4</th>
+                      <th md-column md-numeric>Circulo de seguridad</th>
+                      <th md-column md-numeric>sunTech Id</th>
+                      <th md-column md-numeric>sunTech Boton de panico</th>
+                      <th md-column md-numeric>Llamada en cabina</th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr md-row md-select-id="name" md-auto-select ng-repeat="descarga in resultConsultaVehiculos | filter: q track by $index">
+                      <td md-cell>{{descarga.GOId}}</td>
+                      <td md-cell>{{descarga.vin}}</td>
+                      <td md-cell>{{descarga.GOSerialNumber}}</td>
+                      <td md-cell>{{descarga.LastCommunication}}</td>
+                      <td md-cell>{{descarga.SunTechPanicButton}}</td>
+                      <td md-cell>{{descarga.GOPanicButton}}</td>
+                      <td md-cell>{{descarga.SunTechIn1}}</td>
+                      <td md-cell>{{descarga.SunTechCalls}}</td>
+                      <td md-cell>{{descarga.GOReverse}}</td>
+                      <td md-cell>{{descarga.GOButton1}}</td>
+                      <td md-cell>{{descarga.GOButton2}}</td>
+                      <td md-cell>{{descarga.GOButton3}}</td>
+                      <td md-cell>{{descarga.GOButton4}}</td>
+                      <td md-cell>{{descarga.GOSafetyCircle}}</td>
+                      <td md-cell>{{descarga.GOBelt}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-table-container>
+
+              <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page-select></md-table-pagination>
+
+            </md-expansion-panel-content>
+            <!--btn cerrar panel-->
+            <md-expansion-panel-footer>
+              <div flex></div>
+              <md-button class="md-warn" ng-click="$panel.collapse()">Ocultar</md-button>
+            </md-expansion-panel-footer>
+            <!--fin btn cerrar panel-->
+          </md-expansion-panel-expanded>
+        </md-expansion-panel>
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+
+</html>

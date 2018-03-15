@@ -1,0 +1,12 @@
+{
+  "name": "generadorreportespepsico",
+  "private": true,
+  "dependencies": {
+    "angular-material-data-table": "^0.10.10",
+    "jquery-table2excel": "^1.1.1"
+  },
+  "devDependencies": {
+    "dialog-polyfill": "^0.4.3",
+    "moment": "^2.20.1"
+  }
+}
