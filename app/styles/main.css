@@ -36,6 +36,6 @@
     font-size: 30px;
 }
 #divFechas {
-    position: absolute;
+    //position: absolute;
     z-index: 1;
 }
