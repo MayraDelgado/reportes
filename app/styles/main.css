@@ -35,9 +35,15 @@
 .material-icons {
     font-size: 30px;
 }
-.divfechas{
-position: absolute;
-    left: 0px;
-    top: 0px;
-    z-index: 10000;
+#div1,
+#div3 {
+    position: relative;
+    border: 1px;
+}
+
+#div2 {
+    z-index: 3;
+    border: 1px;
+    width: 1000;
+    height: 900;
 }
