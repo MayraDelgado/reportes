@@ -56,3 +56,9 @@
   .md-datepicker-calendar-pane.md-pane-open {
     -webkit-transform: scale(1);
             transform: scale(1); }
+
+.md-select-menu-container.md-active {
+    display: block;
+    opacity: 1;
+    z-index: 1000;
+}
