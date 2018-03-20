@@ -115,7 +115,6 @@ var angularObj = {
                     if ($scope.resultReporteFechas.length === 0) {
                         swal({
                             type: 'error',
-                            title: 'Oops...',
                             text: 'No existen registros en el rango de fechas seleccionado',
                         });
                     }
