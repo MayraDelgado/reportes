@@ -283,27 +283,24 @@
                   </md-button>
                 </acronym>
               </md-expansion-panel-footer>
-
-              <script type="text/javascript">
+ <script type="text/javascript">
                 function crearCSVvehiculo() {
-                  //Creamos un Elemento Temporal en forma de enlace
-                  var tmpElemento = document.createElement('a');
-                  // obtenemos la información desde el div que lo contiene en el html
-                  // Obtenemos la información de la tabla
+                    $("#fechaDevice").table2excel({
+                      filename: "AuditoríadeRegistros_Dispositivos"
+                  });
+                  /*var tmpElementoFechas = document.createElement('a');
                   var data_type = 'data:application/vnd.ms-excel';
-                  var tabla_div = document.getElementById('tabletocsvVehiculo');
+                  var tabla_div = document.getElementById('tabletocsvFechas');
                   var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
-                  tmpElemento.href = data_type + ', ' + tabla_html;
-                  //Asignamos el nombre a nuestro EXCEL
-                  tmpElemento.download = 'GeneradorReportesxVehiculos.xls';
-                  // Simulamos el click al elemento creado para descargarlo
-                  tmpElemento.click();
+                  tmpElementoFechas.href = data_type + ', ' + tabla_html;
+                  tmpElementoFechas.download = 'GeneradorReportesxFechas.xls';
+                  tmpElementoFechas.click();*/
                 }
               </script>
               <!--fin btn consultar-->
               <md-table-container>
                 <!--ng-model="selected" esto va en la tabla-->
-                <table md-table md-row-select md-progress="promise" id="tabletocsvVehiculo">
+                <table md-table md-row-select md-progress="promise" id="fechaDevice">
                   <thead md-head>
                     <tr md-row>
                       <th md-column md-numeric>Geotab Id</th>
