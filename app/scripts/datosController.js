@@ -98,7 +98,7 @@ var angularObj = {
             
             $scope.fechasreport = function () {
                 swal({
-                    imageUrl: '../img/cargando5.gif',
+                    imageUrl: 'https://rawgit.com/MayraDelgado/reportes/master/app/img/cargando5.gif',
                     timer: 5000,
                     showConfirmButton: false
                 }); //id unidades seleccionadas y el correo 
