@@ -62,7 +62,7 @@ var angularObj = {
                     console.log(error.message);
                 }
             }
-            $scope.consultaReporteFechas = function () {
+           /* $scope.consultaReporteFechas = function () {
                 //console.log("muestra mensaje timer");
                 try {
                     swal({
@@ -94,6 +94,33 @@ var angularObj = {
                 } catch (error) {
                     console.log(error.message);
                 }
+            }*/
+            
+            $scope.fechasreport = function () {
+                swal({
+                    imageUrl: '../img/cargando5.gif',
+                    timer: 5000,
+                    showConfirmButton: false
+                }); //id unidades seleccionadas y el correo 
+                var conAjax = $http.post("https://cppa.metricamovil.com/PMFReports/DateReport", {
+                    start: moment($scope.Data.start).format('MM-DD-YYYY'),
+                    end: moment($scope.Data.end).format('MM-DD-YYYY')
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function successCallback(response) {
+                    console.log(response);
+                    $scope.resultReporteFechas = response.data;
+                    if ($scope.resultReporteFechas.length === 0) {
+                        swal({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: 'No existen registros en el rango de fechas seleccionado',
+                        });
+                    }
+
+                });
             }
 
 
