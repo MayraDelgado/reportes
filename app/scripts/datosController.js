@@ -122,9 +122,7 @@ var angularObj = {
                 });
             }
 
-
-
-            $scope.consultaVehiculos = function () {
+            /*$scope.consultaVehiculos = function () {
                 try {
                     //$scope.dispositivoSeleccionado = $scope.lstDeviceGeotab;
                     var dispositivoSeleccionadoAux = this.dispositivoSeleccionado;
@@ -163,6 +161,42 @@ var angularObj = {
 
                 } catch (error) {
                     console.log(error.message);
+                }
+            }*/
+             $scope.vehiculosreport = function () {
+                var dispositivoSeleccionadoAux = this.dispositivoSeleccionado;
+                if (dispositivoSeleccionadoAux.length > 0) {
+                    swal({
+                        imageUrl: '../img/cargando5.gif',
+                        timer: 5000,
+                        showConfirmButton: false,
+                    }).then(function (result) {
+                        var listaIds = [];
+                        dispositivoSeleccionadoAux.forEach(function (dispositivo) {
+                            listaIds.push(dispositivo.id);
+                        });
+                        var conAjax = $http.post("https://cppa.metricamovil.com/PMFReports/DeviceReport", JSON.stringify({
+                            start: moment($scope.Data.start).format('MM-DD-YYYY'),
+                            end: moment($scope.Data.end).format('MM-DD-YYYY'),
+                            devices: listaIds
+                        }), {
+                            headers: {
+                                'Content-Type': 'application/json'
+                            }
+                        }).then(function successCallback(response) {
+                            $scope.resultConsultaVehiculos = response.data;
+                            console.log(response);
+                            if ($scope.resultConsultaVehiculos.length === 0) {
+                                swal({
+                                    type: 'error',
+                                    title: 'Oops...',
+                                    text: 'No existen registros en el rango de fechas seleccionado',
+                                });
+                            }
+                        }, function errorCallback(respone) {
+                            console.error(response);
+                        });
+                    });
                 }
             }
 
