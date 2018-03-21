@@ -149,12 +149,12 @@ var angularObj = {
                             }).then(function successCallback(response) {
                                 $scope.resultConsultaVehiculos = response.data;
                                 console.log(response);
-                                if($scope.resultConsultaVeehiculos.length === 0 ){
-                                    swal({
-                                         type: 'error',
-                                        text: 'No existen registros en el rango de fechas seleccionado',
-                                     });
-                                 }
+                                if ($scope.resultConsultaVehiculos.length === 0) {
+                        swal({
+                            type: 'error',
+                            text: 'No existen registros en el rango de fechas seleccionado',
+                        });
+                    }
                             }, function errorCallback(respone) {
                                 console.error(response);
                             });
