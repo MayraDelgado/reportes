@@ -167,7 +167,7 @@ var angularObj = {
                 var dispositivoSeleccionadoAux = this.dispositivoSeleccionado;
                 if (dispositivoSeleccionadoAux.length > 0) {
                     swal({
-                        imageUrl: '../img/cargando5.gif',
+                        imageUrl: 'https://rawgit.com/MayraDelgado/reportes/master/app/img/cargando5.gif',
                         timer: 5000,
                         showConfirmButton: false,
                     }).then(function (result) {
@@ -189,11 +189,11 @@ var angularObj = {
                             if ($scope.resultConsultaVehiculos.length === 0) {
                                 swal({
                                     type: 'error',
-                                    title: 'Oops...',
+                                    //title: 'Oops...',
                                     text: 'No existen registros en el rango de fechas seleccionado',
                                 });
                             }
-                        }, function errorCallback(respone) {
+                        }, function errorCallback(response) {
                             console.error(response);
                         });
                     });
