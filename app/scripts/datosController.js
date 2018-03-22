@@ -204,23 +204,23 @@ var angularObj = {
                 });
                 limpiarTableFechas();
             }
-            $scope.crearCSVvehiculo = function () {
+           /* $scope.crearCSVvehiculo = function () {
                 $("#fechaDevice").table2excel({
                     exclude: ".noExl",
                     fileext: ".xls",
                     filename: "AuditoríadeRegistros_Dispositivos"
                 });
                 limpiarTableDevices();
-            }
+            }*/
             var limpiarTableFechas = function () {
                 // $('#fechaInstalacion tbody').remove();
                 location.reload();
 
             }
-            var limpiarTableDevices = function () {
+           /* var limpiarTableDevices = function () {
                 // $('#fechaDevice tbody').remove();
                 location.reload();
-            }
+            }*/
 
         }]);
 
