@@ -26,36 +26,21 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
-
-  
-  <!--script>
-    $("button").click(function () {
-      $("#fechaInstalacion").table2excel({
-        filename: "miarchivo"
-      });
-    });
-  </script-->
   <!-- endbower -->
   <!-- endbuild -->
-
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
-
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <!-- endbower -->
   <!-- endbuild -->
-
   <!-- build:js scripts/main.js -->
   <script src="scripts/main.js"></script>
   <script src="scripts/datosController.js"></script>
   <!-- endbuild -->
-
 </head>
-
 <body>
-
   <div id="generadorReportesPepsico" class="hidden">
 
     <header class="geotabPageHeader">
@@ -132,7 +117,7 @@
                   </md-button>
                 </acronym>
               </md-expansion-panel-footer>
-              <script type="text/javascript">
+              <!--script type="text/javascript">
                 function crearCSVFechas() {
                     $("#fechaInstalacion").table2excel({
                       filename: "AuditoríadeRegistros_Fechas"
@@ -145,7 +130,7 @@
                   tmpElementoFechas.download = 'GeneradorReportesxFechas.xls';
                   tmpElementoFechas.click();*/
                 }
-              </script>
+              </script-->
               <!--fin btn consultar-->
               <md-table-container>
                 <!--ng-model="selected" esto va en la tabla-->
@@ -190,9 +175,7 @@
                   </tbody>
                 </table>
               </md-table-container>
-
               <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-page-select></md-table-pagination>
-
             </md-expansion-panel-content>
             <!--btn cerrar panel-->
             <md-expansion-panel-footer>
@@ -237,8 +220,6 @@
                   </small>
                 </md-input-container>
               </div>
-
-
               <!--fecha inicio-->
               <div layout="row" layout-xs="column">
                 <div flex>
@@ -278,12 +259,12 @@
               <md-expansion-panel-footer>
                 <div flex></div>
                 <acronym title="File download">
-                  <md-button id="fechaVehiculo" class="md-primary md-hue-1" onclick="crearCSVvehiculo()">
+                  <md-button id="fechaVehiculo" class="md-primary md-hue-1" ng-click="crearCSVvehiculo()">
                     <i class="material-icons" style="color:rgb(21, 87, 5)">file_download</i>
                   </md-button>
                 </acronym>
               </md-expansion-panel-footer>
- <script type="text/javascript">
+              <!--script type="text/javascript">
                 function crearCSVvehiculo() {
                     $("#fechaDevice").table2excel({
                       filename: "AuditoríadeRegistros_Dispositivos"
@@ -296,7 +277,7 @@
                   tmpElementoFechas.download = 'GeneradorReportesxFechas.xls';
                   tmpElementoFechas.click();*/
                 }
-              </script>
+              </script-->
               <!--fin btn consultar-->
               <md-table-container>
                 <!--ng-model="selected" esto va en la tabla-->
@@ -341,9 +322,7 @@
                   </tbody>
                 </table>
               </md-table-container>
-
               <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page-select></md-table-pagination>
-
             </md-expansion-panel-content>
             <!--btn cerrar panel-->
             <md-expansion-panel-footer>
@@ -355,10 +334,7 @@
         </md-expansion-panel>
       </div>
     </div>
-
-
   </div>
-
 </body>
 
 </html>
