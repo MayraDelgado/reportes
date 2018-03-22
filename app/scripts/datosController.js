@@ -196,14 +196,14 @@ var angularObj = {
                 }
             }
              
-            $scope.crearCSVFechas = function () {
+           /* $scope.crearCSVFechas = function () {
                 $('#fechaInstalacion').table2excel({
                     exclude: ".noExl",
                     fileext: ".xls",
                     filename: "AuditoríadeRegistros_Fechas" + new Date().toUTCString().replace(/[\-\:\.]/g, "")
                 });
                 limpiarTableFechas();
-            }
+            }*/
            /* $scope.crearCSVvehiculo = function () {
                 $("#fechaDevice").table2excel({
                     exclude: ".noExl",
