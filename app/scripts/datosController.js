@@ -31,10 +31,6 @@ var angularObj = {
             $scope.numberOfPages = function () {
                 return Math.ceil($scope.getData().length / $scope.pageSize);
             }
-
-
-
-
             // api call vehiculos geotab
             api.call("Get", {
                 typeName: "Device"
@@ -199,7 +195,32 @@ var angularObj = {
                     });
                 }
             }
+             
+            $scope.crearCSVFechas = function () {
+                $('#fechaInstalacion').table2excel({
+                    exclude: ".noExl",
+                    fileext: ".xls",
+                    filename: "AuditoríadeRegistros_Fechas" + new Date().toUTCString().replace(/[\-\:\.]/g, "")
+                });
+                limpiarTableFechas();
+            }
+            $scope.crearCSVvehiculo = function () {
+                $("#fechaDevice").table2excel({
+                    exclude: ".noExl",
+                    fileext: ".xls",
+                    filename: "AuditoríadeRegistros_Dispositivos"
+                });
+                limpiarTableDevices();
+            }
+            var limpiarTableFechas = function () {
+                // $('#fechaInstalacion tbody').remove();
+                location.reload();
 
+            }
+            var limpiarTableDevices = function () {
+                // $('#fechaDevice tbody').remove();
+                location.reload();
+            }
 
         }]);
 
