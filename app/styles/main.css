@@ -82,3 +82,21 @@ element.style {
     font-size: 12px;
     z-index: 1000;
 }
+
+md-expansion-panel-footer .md-expansion-panel-footer-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 48px;
+    line-height: 48px;
+    padding: 0 24px;
+    border-top: 0px solid;
+    box-sizing: border-box;
+}
+
+md-content.md-default-theme,
+md-content {
+    color: rgb(5, 42, 90);
+    background-color: rgb(255, 255, 255);
+}
+
