@@ -141,6 +141,8 @@
                       <!--th md-column md-numeric>VIN </th-->
                       <th md-column md-numeric  style="color:rgb(5, 56, 97) ">Geotab Numero de serie</th>
                       <th md-column md-numeric  style="color:rgb(5, 56, 97) ">Geotab Ultima comunicación Geotab</th>
+                      <th md-column md-numeric style="color:rgb(5, 56, 97)">Fecha de inicio consulta</th>
+                      <th md-column md-numeric style="color:rgb(5, 56, 97)">Fecha de fin consulta</th>
                       <th md-column md-numeric  style="color:rgb(5, 56, 97) ">Geotab boton de panico</th>
                       <th md-column md-numeric style="color:rgb(5, 56, 97) ">Cinturon de seguridad</th>
                       <th md-column md-numeric style="color:rgb(5, 56, 97) ">Reversa</th>
@@ -160,6 +162,8 @@
                       <!--td md-cell>{{dispositivo.vehicleIdentificationNumber}}</td-->
                       <td md-cell>{{dispositivo.GOSerialNumber}}</td>
                       <td md-cell>{{dispositivo.LastCommunication}}</td>
+                      <td md-cell>{{Data.start}}</td>
+                      <td md-cell>{{Data.end}}</td>
                       <td md-cell>{{dispositivo.GOPanicButton}}</td>
                       <td md-cell>{{dispositivo.GOBelt}}</td>
                       <td md-cell>{{dispositivo.GOReverse}}</td>
@@ -288,6 +292,8 @@
                       <!--th md-column md-numeric>VIN </th-->
                       <th md-column md-numeric>Geotab Numero de serie</th>
                       <th md-column md-numeric>Geotab Ultima comunicación Geotab</th>
+                      <th md-column md-numeric style="color:rgb(5, 56, 97)">Fecha de inicio consulta</th>
+                      <th md-column md-numeric style="color:rgb(5, 56, 97)">Fecha de fin consulta</th>
                       <th md-column md-numeric>Geotab boton de panico</th>
                       <th md-column md-numeric>Cinturon de seguridad</th>
                       <th md-column md-numeric>Reversa</th>
@@ -307,6 +313,8 @@
                       <!--td md-cell>{{descarga.vin}}</td-->
                       <td md-cell>{{descarga.GOSerialNumber}}</td>
                       <td md-cell>{{descarga.LastCommunication}}</td>
+                      <td md-cell>{{Data.start}}</td>
+                      <td md-cell>{{Data.end}}</td>
                       <td md-cell>{{descarga.SunTechPanicButton}}</td>
                       <td md-cell>{{descarga.GOPanicButton}}</td>
                       <td md-cell>{{descarga.SunTechIn1}}</td>
