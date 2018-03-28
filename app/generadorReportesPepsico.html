@@ -124,6 +124,29 @@
                   Checkbox (md-primary): No Ink
                 </md-checkbox>
               </div>
+              <div layout="row" layout-xs="column">
+                <div flex>
+                  <div class="container">
+                    <md-content layout-padding>
+                      <div layout-gt-xs="row">
+                        <form name="upload" ng-submit="uploadFile()">
+                          <input type="file" name="file" uploader-model="file">
+                        </form>
+                      </div>
+                    </md-content>
+                  </div>
+                </div>
+                <!--fin fechas inicio-->
+                <!--inicio fechas fin-->
+                <div flex>
+                  <!--boton consultar-->
+                  <md-expansion-panel-footer>
+                    <div flex></div>
+                    <md-button class="md-warn md-raised" ng-click="fechasreport()">Consultar</md-button>
+                  </md-expansion-panel-footer>
+                </div>
+                <!--fin fechas fin-->
+              </div>
               <!--boton consultar-->
               <md-expansion-panel-footer>
                 <div flex></div>
