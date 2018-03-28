@@ -195,6 +195,21 @@ var angularObj = {
                     });
                 }
             }
+             $scope.crearCSVFechas = function () {
+                if ($scope.resultReporteFechas.length === 0) {
+                    swal(
+                        '',
+                        '٩(͡๏̯ ͡๏)۶ No hay datos que descargar',
+                        "question"
+                    )
+                    console.log("No hay datos que descargar, por favor reliza consulta");
+                } else
+                if ($scope.resultReporteFechas.length > 0) {
+                    $("#fechaInstalacion").table2excel({
+                        filename: "AuditoríadeRegistros_Fechas"
+                    });
+                }
+            }
              
            /* $scope.crearCSVFechas = function () {
                 $('#fechaInstalacion').table2excel({
@@ -222,21 +237,6 @@ var angularObj = {
                 location.reload();
             }*/
 
-             $scope.crearCSVFechas = function () {
-                if ($scope.resultReporteFechas.length === 0) {
-                    swal(
-                        '',
-                        '٩(͡๏̯ ͡๏)۶ No hay datos que descargar',
-                        "question"
-                    )
-                    console.log("No hay datos que descargar, por favor reliza consulta");
-                } else
-                if ($scope.resultReporteFechas.length > 0) {
-                    $("#fechaInstalacion").table2excel({
-                        filename: "AuditoríadeRegistros_Fechas"
-                    });
-                }
-            }
         }]);
 
         angularObj.app.config(function ($mdDateLocaleProvider) {
