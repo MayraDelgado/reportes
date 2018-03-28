@@ -100,3 +100,7 @@ md-content {
     background-color: rgb(255, 255, 255);
 }
 
+md-checkbox.md-checked.green .md-icon {
+    background-color: rgba(3, 66, 3, 0.87);
+}
+
