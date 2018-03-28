@@ -97,7 +97,7 @@ md-expansion-panel-footer .md-expansion-panel-footer-container {
 md-content.md-default-theme,
 md-content {
     color: rgb(5, 42, 90);
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(250, 248, 248);
 }
 
 md-checkbox.md-checked.green .md-icon {
