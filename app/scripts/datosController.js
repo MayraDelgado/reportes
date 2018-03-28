@@ -12,7 +12,8 @@ var angularObj = {
         angularObj.app.controller('accesoDatosController', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
             $scope.lstDeviceGeotab = [];
             $scope.dispositivoSeleccionado = [];
-            $scope.lstDevice = {};
+            $scope.lstDevice = {};            
+            $scope.resultReporteFechas = [];
             $scope.resultConsultaVehiculos = [];
             $scope.resultConsultaVehiculosFiltro = [];
             $scope.Data = {
