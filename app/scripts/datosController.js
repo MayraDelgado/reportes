@@ -196,7 +196,7 @@ var angularObj = {
                 }
             }
              $scope.crearCSVFechas = function () {
-                if ($scope.resultReporteFechas.length === 0) {
+               if ($scope.resultReporteFechas.length === 0) {
                     swal(
                         '',
                         '٩(͡๏̯ ͡๏)۶ No hay datos que descargar',
