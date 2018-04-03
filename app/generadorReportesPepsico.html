@@ -72,7 +72,130 @@
               <md-expansion-panel-icon></md-expansion-panel-icon>
             </md-expansion-panel-header>
             <md-expansion-panel-content>
-               
+              <div layout="row" layout-xs="column" flex="100">
+                <div flex>
+                  <div flex-gt-sm="50">
+                    <md-input-container class="md-block">
+                      <md-switch class="md-primary" name="special" ng-model="checked" required>
+                        Habilitar consulta por fechas
+                      </md-switch>
+                    </md-input-container>
+                  </div>
+                  <div layout="row" layout-xs="column" ng-if="checked">
+                    <div flex>
+                      <div class="container">
+                        <md-content layout-padding>
+                          <div layout-gt-xs="row">
+                            <div flex-gt-xs>
+                              <h4>Fecha inicio</h4>
+                              <md-datepicker ng-model="Data.start" md-placeholder="Enter date"></md-datepicker>
+                            </div>
+                          </div>
+                        </md-content>
+                      </div>
+                    </div>
+                    <div flex>
+                      <div class="container">
+                        <md-content layout-padding>
+                          <div layout-gt-xs="row">
+                            <div flex-gt-xs>
+                              <h4>Fecha fin</h4>
+                              <md-datepicker ng-model="Data.end" md-placeholder="Enter date"></md-datepicker>
+                            </div>
+                          </div>
+                        </md-content>
+                      </div>
+                    </div>
+                    <!--btn consulta-->
+                    <div flex>
+                      <div class="container">
+                        <md-content layout-padding>
+                          <div layout-gt-xs="row">
+                            <div flex-gt-xs>
+                              <acronym title="Consultar...">
+                                <md-button class="md-raised md-primary" ng-click="fechasreport()">
+                                  <md-icon>
+                                    <i class="material-icons" style="color:rgb(247, 247, 247)">
+                                      <i class="material-icons">search</i>
+                                    </i>
+                                  </md-icon>
+                                </md-button>
+                                <br>
+                                <br>
+                                <br>
+                              </acronym>
+                            </div>
+                          </div>
+                        </md-content>
+                      </div>
+                    </div>
+                    <!-- fin btn consulta-->
+                  </div>
+                </div>
+                <div flex>
+                  <div flex-gt-sm="50">
+                    <md-input-container class="md-block">
+                      <md-switch class="md-primary" name="special" ng-model="checked1" required>
+                        Habilitar consulta excel
+                      </md-switch>
+                    </md-input-container>
+                  </div>
+                  <div layout="row" layout-xs="column" ng-show="checked1">
+                    <div flex>
+                      <div class="container">
+                        <md-content layout-padding>
+                          <div layout-gt-xs="row">
+                            <form name="upload" ng-submit="uploadFile()">
+                              <input type="file" name="file" uploader-model="file">
+                            </form>
+                          </div>
+                        </md-content>
+                      </div>
+                    </div>
+                    <!--fin fechas inicio-->
+                    <!--inicio fechas fin-->
+                    <acronym title="Consultar...">
+                      <md-button class="md-raised md-primary" ng-click="fechasreport()">
+                        <md-icon>
+                          <i class="material-icons" style="color:rgb(238, 241, 237)">
+                            <i class="material-icons">search</i>
+                          </i>
+                        </md-icon>
+                      </md-button>
+                    </acronym>
+                    <!--fin fechas fin-->
+                  </div>
+
+                  <div layout="row" layout-xs="column" ng-show="checked1">
+                    <div class="container">
+                      <div layout-gt-xs="row">
+                        <md-table-container>
+                          <!--ng-model="selected" esto va en la tabla-->
+                          <table md-table>
+                            <thead md-head>
+                              <tr md-row>
+                                <th md-column md-numeric>Económico </th>
+                                <th md-column md-numeric>Fecha inicio de consulta</th>
+                                <th md-column md-numeric>Fecha fin de consulta</th>
+                              </tr>
+                            </thead>
+                            <tbody md-body>
+                              <tr md-row md-select-id="name " md-auto-select>
+                                <!--td>{{ $index + 1 }}</td-->
+                                <td md-cell>{{dispositivo.vehicleIdentificationNumber}}</td>
+                                <td md-cell>{{respvinNameDevice.name}}</td>
+                                <td md-cell>{{dispositivo.GOSerialNumber}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </md-table-container>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> 
+              
+              
               <!--fecha inicio-->
               <!--div flex-gt-sm="50">
                 <md-input-container class="md-block">
