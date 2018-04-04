@@ -94,11 +94,6 @@ md-expansion-panel-footer .md-expansion-panel-footer-container {
     box-sizing: border-box;
 }
 
-md-content.md-default-theme,
-md-content {
-    color: rgb(0, 6, 10);
-    background-color: rgb(250, 248, 248);
-}
 
 md-checkbox.md-checked.green .md-icon {
     background-color: rgba(3, 66, 3, 0.87);
@@ -115,38 +110,6 @@ md-checkbox.md-checked.green .md-icon {
     background-color: rgba(3, 66, 3, 0.87);
 }
 
-input[type=checkbox] {
-    position: relative;
-    cursor: pointer;
-}
-
-input[type=checkbox]:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 17px;
-    height: 17px;
-    top: 0;
-    left: 0;
-    border: 1px solid #044404;
-    border-radius: 1px;
-    background-color: rgb(20, 80, 3);
-}
-
-input[type=checkbox]:checked:after {
-    content: "";
-    display: block;
-    width: 5px;
-    height: 10px;
-    border: solid rgb(240, 243, 240);
-    border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    position: absolute;
-    top: 2px;
-    left: 6px;
-}
 
 md-switch.md-default-theme.md-checked.md-primary .md-thumb,
 md-switch.md-checked.md-primary .md-thumb {
@@ -170,11 +133,6 @@ html {
     color: rgba(10, 10, 10, 0.87);
 }
 
-md-content.md-default-theme,
-md-content {
-    color: rgb(7, 103, 187);
-    background-color: rgba(253, 250, 250, 0.71);
-}
 .md-button {
     display: inline-block;
     position: relative;
@@ -250,4 +208,10 @@ md-content {
     clear: right;
     margin-top: 0.5em;
     margin-left: 5px;
+}
+
+md-content.md-default-theme,
+md-content {
+    color: rgb(0, 6, 10);
+    background-color: rgba(253, 250, 250, 0.71);
 }
