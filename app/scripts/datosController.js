@@ -203,7 +203,7 @@ var angularObj = {
                         'No hay datos que descargar',
                         "question"
                     )
-                    console.log("No hay datos que descargar");
+                    console.log(" ¯\_(ツ)_/¯ No hay datos que descargar");
                 } else
                 if ($scope.resultReporteFechas.length > 0) {
                     $("#fechaInstalacion").table2excel({
