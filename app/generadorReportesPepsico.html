@@ -260,7 +260,72 @@
               <md-expansion-panel-icon></md-expansion-panel-icon>
             </md-expansion-panel-header>
             <md-expansion-panel-content>
-              
+              <!--inicio devices modificado-->
+              <div layout="row" layout-wrap>
+                <div flex="33">
+                  <div flex>
+                    <br>
+                    <center>
+                      <div layout="row ">
+                        <md-input-container flex="80">
+                          <small class="md-caption ">
+                            <md-select multiple md-on-close="true " name="field " ng-model="dispositivoSeleccionado
+                              " placeholder="Buscar Vehículos... " data-md-container-class="selectdemoSelectHeader ">
+                              <md-select-header layout="column " class="demo-select-header " id="divFechas ">
+                                <md-input-container>
+                                  <input ng-model="busqueda " type="search " ng-model-options="{debounce: { 'default': 1000,
+                              'blur': 0}} " placeholder="Buscar Vehículos... " class="demo-header-searchbox md-text " ng-keydown="updateSearch($event) "
+                                  />
+                                </md-input-container>
+                              </md-select-header>
+                              <md-option ng-repeat="dispositivo in lstDeviceGeotab | filter: busqueda " ng-value="{{dispositivo}} ">{{dispositivo.name}}</md-option>
+                            </md-select>
+                            <div ng-messages="form.field.$error ">
+                            </div>
+                          </small>
+                        </md-input-container>
+                      </div>
+                    </center>
+                  </div>
+                </div>
+                <div flex="66">
+                  <div flex>
+                    <div layout="row" layout-xs="column" flex="100">
+                      <div flex>
+                        <div class="container">
+                          <md-content layout-padding>
+                            <div layout-gt-xs="row">
+                              <div flex-gt-xs>
+                                <h4>Del:</h4>
+                                <md-datepicker ng-model="Data.start" md-placeholder="Enter date"></md-datepicker>
+                              </div>
+                            </div>
+                          </md-content>
+                        </div>
+                      </div>
+                      <div flex>
+                        <div class="container">
+                          <md-content layout-padding>
+                            <div layout-gt-xs="row">
+                              <div flex-gt-xs>
+                                <h4>Al:</h4>
+                                <md-datepicker ng-model="Data.end" md-placeholder="Enter date"></md-datepicker>
+                              </div>
+                            </div>
+                          </md-content>
+                        </div>
+                      </div>
+                      <!--btn consulta-->
+                      <acronym title="">
+                        <button class="optionsMenu_AutocompleteButton geotabButton" ng-click="vehiculosreport()">
+                          <span class="md-caption">Consultar</span>
+                        </button>
+                      </acronym>
+                      <!-- fin btn consulta-->
+                    </div>
+                  </div>
+                </div>
+              </div>
               <!--div layout="row">
                 <md-input-container flex="50">
                   <small class="md-caption">
