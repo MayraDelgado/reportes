@@ -59,14 +59,14 @@
         <!--Panel consulta por fechas de instalacion-->
         <md-expansion-panel md-component-id="panelOne"  >
           <md-expansion-panel-collapsed>
-            <div class="md-summary" style="color:rgb(9, 69, 109)">
+            <div class="md-summary" style="color:rgb(37, 71, 123)">
               <font size="3">CONSULTA POR FECHA DE INSTALACIÓN</font>
             </div>
             <md-expansion-panel-icon></md-expansion-panel-icon>
           </md-expansion-panel-collapsed>
           <md-expansion-panel-expanded>
             <md-expansion-panel-header>
-              <div class="md-summary" style="color:rgb(9, 69, 109)">
+              <div class="md-summary" style="color:rgb(37, 71, 123)">
                 <font size="3">CONSULTA POR FECHA DE INSTALACIÓN</font>
               </div>
               <md-expansion-panel-icon></md-expansion-panel-icon>
@@ -173,109 +173,6 @@
                   </div>
                 </div>
               </div> 
-              
-              
-              <!--fecha inicio-->
-              <!--div flex-gt-sm="50">
-                <md-input-container class="md-block">
-                  <md-switch class="md-primary" name="special" ng-model="checked" required>
-                    Habilitar consulta por fechas
-                  </md-switch>
-                </md-input-container>
-              </div>
-              <div layout="row" layout-xs="column" ng-if="checked" flex="50" >
-                <div flex >
-                  <div class="container" >
-                    <md-content layout-padding>
-                      <div layout-gt-xs="row" >
-                        <div flex-gt-xs>
-                          <h4>Fecha inicio</h4>
-                          <md-datepicker ng-model="Data.start" md-placeholder="Enter date"></md-datepicker>
-                        </div>
-                      </div>
-                    </md-content>
-                  </div>
-                </div>
-                <div flex>
-                  <div class="container" >
-                    <md-content layout-padding>
-                      <div layout-gt-xs="row">
-                        <div flex-gt-xs>
-                          <h4>Fecha fin</h4>
-                          <md-datepicker ng-model="Data.end" md-placeholder="Enter date"></md-datepicker>
-                        </div>
-                      </div>
-                    </md-content>
-                  </div>
-                </div>
-                <acronym title="Consultar...">
-                  <md-button class="md-fab md-mini md-primary" ng-click="fechasreport()">
-                    <md-icon>
-                      <i class="material-icons" style="color:rgb(238, 241, 237)">
-                        <i class="material-icons">search</i>
-                      </i>
-                    </md-icon>
-                  </md-button>
-                </acronym>
-              </div>
-              <div flex-gt-sm="50">
-                <md-input-container class="md-block">
-                  <md-switch class="md-primary" name="speciall" ng-model="checked1" required ng-disabled="true">
-                    Habilitar consulta excel
-                  </md-switch>
-                </md-input-container>
-              </div>
-              <div layout="row" layout-xs="column" ng-show="checked1">
-                <div flex>
-                  <div class="container">
-                    <md-content layout-padding>
-                      <div layout-gt-xs="row">
-                        <form name="upload" ng-submit="uploadFile()">
-                          <input type="file" name="file" uploader-model="file">
-                        </form>
-                      </div>
-                    </md-content>
-                  </div>
-                </div>
-                <acronym title="Consultar...">
-                  <md-button class="md-fab md-mini md-primary" ng-click="fechasreport()">
-                    <md-icon>
-                      <i class="material-icons" style="color:rgb(238, 241, 237)">
-                        <i class="material-icons">search</i>
-                      </i>
-                    </md-icon>
-                  </md-button>
-                </acronym>
-                <!--fin fechas inicio-->
-                <!--inicio fechas fin-->
-                <!--fin fechas fin-->
-              <!--/div-->
-              <!--div layout="row" layout-xs="column" ng-show="checked1">
-                <div class="container">
-                  <div layout-gt-xs="row">
-                    <md-table-container>
-                      <table md-table>
-                        <thead md-head>
-                          <tr md-row>
-                            <th md-column md-numeric>Económico </th>
-                            <th md-column md-numeric>Fecha inicio de consulta</th>
-                            <th md-column md-numeric>Fecha fin de consulta</th>
-                          </tr>
-                        </thead>
-                        <tbody md-body>
-                          <tr md-row md-select-id="name " md-auto-select>
-                            <td md-cell>{{dispositivo.vehicleIdentificationNumber}}</td>
-                            <td md-cell>{{respvinNameDevice.name}}</td>
-                            <td md-cell>{{dispositivo.GOSerialNumber}}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </md-table-container>
-
-                  </div>
-                </div>
-              </div-->
-              <!-- fin radioButton consulta excel -->
               <!--boton consultar-->
               <md-expansion-panel-footer>
                 <div flex></div>
@@ -350,14 +247,14 @@
         <!--inicio panel consulta por vehiculo-->
         <md-expansion-panel md-component-id="panelOne">
           <md-expansion-panel-collapsed>
-            <div class="md-summary" style="color:rgb(1, 26, 41)">
+            <div class="md-summary" style="color:rgb(37, 71, 123)">
               <font size="3">CONSULTA POR VEHÍCULO</font>
             </div>
             <md-expansion-panel-icon></md-expansion-panel-icon>
           </md-expansion-panel-collapsed>
           <md-expansion-panel-expanded>
             <md-expansion-panel-header>
-              <div class="md-summary" style="color:rgb(1, 26, 41)">
+              <div class="md-summary" style="color:rgb(37, 71, 123)">
                 <font size="3">CONSULTA POR VEHÍCULO</font>
               </div>
               <md-expansion-panel-icon></md-expansion-panel-icon>
@@ -429,13 +326,6 @@
                     $("#fechaDevice").table2excel({
                       filename: "AuditoríadeRegistros_Dispositivos"
                   });
-                  /*var tmpElementoFechas = document.createElement('a');
-                  var data_type = 'data:application/vnd.ms-excel';
-                  var tabla_div = document.getElementById('tabletocsvFechas');
-                  var tabla_html = tabla_div.outerHTML.replace(/ /g, '%20');
-                  tmpElementoFechas.href = data_type + ', ' + tabla_html;
-                  tmpElementoFechas.download = 'GeneradorReportesxFechas.xls';
-                  tmpElementoFechas.click();*/
                 }
               </script>
               <!--fin btn consultar-->
