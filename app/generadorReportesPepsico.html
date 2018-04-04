@@ -377,18 +377,11 @@
               <md-expansion-panel-footer>
                 <div flex></div>
                 <acronym title="File download">
-                  <md-button id="fechaVehiculo" class="md-primary md-hue-1" onclick="crearCSVvehiculo()">
+                  <md-button id="fechaVehiculo" class="md-primary md-hue-1" ng-click="crearCSVvehiculo()">
                     <i class="material-icons" style="color:rgb(21, 87, 5)">file_download</i>
                   </md-button>
                 </acronym>
               </md-expansion-panel-footer>
-              <script type="text/javascript">
-                function crearCSVvehiculo() {
-                    $("#fechaDevice").table2excel({
-                      filename: "AuditoríadeRegistros_Dispositivos"
-                  });
-                }
-              </script>
               <!--fin btn consultar-->
               <md-table-container>
                 <!--ng-model="selected" esto va en la tabla-->
