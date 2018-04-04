@@ -175,13 +175,14 @@
               </div> 
               <!--boton consultar-->
               <md-expansion-panel-footer>
-                <div flex></div>
-                <acronym title="File download">
-                  <md-button  class="md-primary md-hue-1" ng-click="crearCSVFechas()">
-                    <i class="material-icons" style="color:rgb(21, 87, 5)">file_download</i>
+              <div flex="100">
+                <acronym title="Exportar Tabla">
+                  <md-button class="optionsMenu_AutocompleteButton geotabButton" ng-click="crearCSVFechas()">
+                    <i class="material-icons md-24">cloud_download </i>
                   </md-button>
                 </acronym>
-              </md-expansion-panel-footer>
+              </div>
+            </md-expansion-panel-footer>
               <!--fin btn consultar-->
               <md-table-container>
                 <!--ng-model="selected" esto va en la tabla-->
