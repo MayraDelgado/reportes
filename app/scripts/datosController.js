@@ -201,7 +201,7 @@ var angularObj = {
                     swal(
                         '',
                         'No hay datos que descargar',
-                        "question"
+                        "error"
                     )
                     console.log(" ¯\_(ツ)_/¯ No hay datos que descargar");
                 } else
