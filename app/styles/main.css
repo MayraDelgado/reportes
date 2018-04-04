@@ -215,3 +215,6 @@ md-content {
     color: rgb(0, 6, 10);
     background-color: rgba(253, 250, 250, 0.71);
 }
+.md-button.md-default-theme.md-warn, .md-button.md-warn {
+    color: rgb(12, 78, 123);
+}
