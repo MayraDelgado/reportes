@@ -218,7 +218,7 @@ md-content {
 .md-button.md-default-theme.md-warn, .md-button.md-warn {
     color: rgb(12, 78, 123);
 }
-th {
+.th-table {
     background-color: rgb(14, 97, 149);
     color: white;
 }
