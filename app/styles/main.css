@@ -236,9 +236,9 @@ md-content {
 /* skin.css Style*/
 
 .upload-drop-zone {
-    color: #ccc;
+    color: #585656d1;
     border-style: dashed;
-    border-color: #ccc;
+    border-color: #a09b9b;
     line-height: 100px;
     text-align: center
 }
