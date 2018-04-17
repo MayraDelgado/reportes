@@ -128,15 +128,97 @@
                       <div class="container">
                         <md-content layout-padding>
                           <div layout-gt-xs="row">
+                            <div class="form-group">
+                              <!--input type="file" id="files" class="form-control" required /-->
+                              <div id="drop_zone" class="upload-drop-zone" required> Suelta los archivos aquí.</div>
+                              <output id="list"></output>
+                              <script>
+                                function handleFileSelect(evt) {
+                                  evt.stopPropagation();
+                                  evt.preventDefault();
+
+                                  var files = evt.dataTransfer.files; // FileList object.
+
+                                  // files is a FileList of File objects. List some properties.
+                                  var output = [];
+                                  for (var i = 0, f; f = files[i]; i++) {
+                                    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                                      f.size, ' bytes, last modified: ',
+                                      f.lastModifiedDate.toLocaleDateString(), '</li>');
+                                  }
+                                  document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+                                }
+
+                                function handleDragOver(evt) {
+                                  evt.stopPropagation();
+                                  evt.preventDefault();
+                                  evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+                                }
+
+                                // Setup the dnd listeners.
+                                var dropZone = document.getElementById('drop_zone');
+                                dropZone.addEventListener('dragover', handleDragOver, false);
+                                dropZone.addEventListener('drop', handleFileSelect, false);
+                              </script>
+                              <script>
+                                function handleFileSelect(evt) {
+                                  var files = evt.target.files; // FileList object
+
+                                  // Loop through the FileList and render image files as thumbnails.
+                                  for (var i = 0, f; f = files[i]; i++) {
+
+                                    // Only process image files.
+                                    if (!f.type.match('image.*')) {
+                                      continue;
+                                    }
+
+                                    var reader = new FileReader();
+
+                                    // Closure to capture the file information.
+                                    reader.onload = (function (theFile) {
+                                      return function (e) {
+                                        // Render thumbnail.
+                                        var span = document.createElement('span');
+                                        span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                          '" title="', escape(theFile.name), '"/>'
+                                        ].join('');
+                                        document.getElementById('list').insertBefore(span, null);
+                                      };
+                                    })(f);
+
+                                    // Read in the image file as a data URL.
+                                    reader.readAsArrayBuffer(f);
+                                  }
+                                }
+
+                                document.getElementById('drop_zone').addEventListener('change', handleFileSelect, false);
+                              </script>
+                            </div>
+                          </div>
+                        </md-content>
+                      </div>
+                    </div>
+                    <!--div flex>
+                      <div class="container">
+                        <md-content layout-padding>
+                          <div layout-gt-xs="row">
                             <form name="upload" ng-submit="uploadFile()">
                               <input type="file" name="file" uploader-model="file">
                             </form>
                           </div>
                         </md-content>
                       </div>
-                    </div>
+                    </div-->
                     <!--fin fechas inicio-->
-                    <!--inicio fechas fin-->                    
+                    <!--inicio fechas fin-->      
+                    <acronym title="">
+                      <js-xls onread="read" onerror="error"></js-xls>
+                      <button type="submit" id="submit-file" class="optionsMenu_AutocompleteButton geotabButton" ng-click="papaParse()">
+                        <span class="md-caption">Subir archivo</span>
+                      </button>
+                    </acronym>
+                    <br>
+                    <br>
                     <acronym title="">
                       <button class="optionsMenu_AutocompleteButton geotabButton" >
                         <span class="md-caption">Consultar</span>
@@ -145,11 +227,11 @@
                     <!--fin fechas fin-->
                   </div>
 
-                  <div layout="row" layout-xs="column" ng-show="checked1">
+                  <!--div layout="row" layout-xs="column" ng-show="checked1">
                     <div class="container">
                       <div layout-gt-xs="row">
                         <md-table-container>
-                          <!--ng-model="selected" esto va en la tabla-->
+                          <!--ng-model="selected" esto va en la tabla>
                           <table md-table>
                             <thead md-head>
                               <tr md-row>
@@ -160,7 +242,7 @@
                             </thead>
                             <tbody md-body>
                               <tr md-row md-select-id="name " md-auto-select>
-                                <!--td>{{ $index + 1 }}</td-->
+                                <!--td>{{ $index + 1 }}</td>
                                 <td md-cell>{{dispositivo.vehicleIdentificationNumber}}</td>
                                 <td md-cell>{{respvinNameDevice.name}}</td>
                                 <td md-cell>{{dispositivo.GOSerialNumber}}</td>
@@ -170,7 +252,7 @@
                         </md-table-container>
                       </div>
                     </div>
-                  </div>
+                  </div-->
                 </div>
               </div> 
               <!--boton consultar-->
