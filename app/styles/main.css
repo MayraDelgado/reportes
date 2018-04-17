@@ -225,3 +225,34 @@ md-content {
 .tr:nth-child(even) {
     background-color: #c8e3f0;
 }
+
+.upload-drop-zone {
+    height: 90px;
+    border-width: 2px;
+    margin-bottom: 20px;
+    width: 400px;
+}
+
+/* skin.css Style*/
+
+.upload-drop-zone {
+    color: #ccc;
+    border-style: dashed;
+    border-color: #ccc;
+    line-height: 100px;
+    text-align: center
+}
+
+.upload-drop-zone.drop {
+    color: #222;
+    border-color: #222;
+}
+
+.md-default-theme .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,
+.md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,
+.md-default-theme .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator,
+.md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
+    background: rgb(14, 97, 149);
+    color: rgba(255, 255, 255, 0.87);
+    border-color: transparent;
+}
