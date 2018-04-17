@@ -222,6 +222,6 @@ md-content {
     background-color: rgb(14, 97, 149);
     color: white;
 }
-tr:nth-child(even) {
+.tr:nth-child(even) {
     background-color: #c8e3f0;
 }
