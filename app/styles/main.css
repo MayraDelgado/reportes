@@ -227,10 +227,10 @@ md-content {
 }
 
 .upload-drop-zone {
-    height: 90px;
-    border-width: 2px;
+    height: 80px;
+    border-width: 1px;
     margin-bottom: 20px;
-    width: 400px;
+    width: 300px;
 }
 
 /* skin.css Style*/
