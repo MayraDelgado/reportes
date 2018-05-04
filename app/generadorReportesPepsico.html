@@ -353,7 +353,7 @@
                       <div layout="row ">
                         <md-input-container flex="80">
                           <small class="md-caption ">
-                            <md-select multiple md-on-close="true " name="field " ng-model="dispositivoSeleccionado
+                            <md-select multiple name="field " ng-model="dispositivoSeleccionado
                               " placeholder="Buscar Vehículos... " data-md-container-class="selectdemoSelectHeader ">
                               <md-select-header layout="column " class="demo-select-header " id="divFechas ">
                                 <md-input-container>
@@ -367,16 +367,7 @@
                             <div ng-messages="form.field.$error ">
                             </div>
                           </small>
-                        </md-input-container>
-                        <!---nuevo-->
-                         <div layout="row">
-      <md-input-container style="margin-right: 10px;">
-        <label>Size</label>
-        <md-select ng-model="dispositivoSeleccionado">
-          <md-option ng-repeat="dispositivo in lstDeviceGeotab" | filter: busqueda " ng-value="{{dispositivo}} ">{{dispositivo.name}}/md-option>
-        </md-select>
-      </md-input-container>
-                        <!--nuevo-->
+                        </md-input-container>                       
                       </div>
                     </center>
                   </div>
