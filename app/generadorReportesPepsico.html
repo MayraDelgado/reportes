@@ -369,22 +369,13 @@
                           </small>
                         </md-input-container>
                         <!---nuevo-->
-                         <div class="panel-body">
-                          <div class="col-md-5">
-                            <small class="md-caption">
-                              <md-select multiple placeholder="Seleccionar dispositivos..." ng-model="dispositivoSeleccionado" for="device" id="device1">
-                                <md-option ng-repeat="dispositivo in lstDeviceGeotab track by $index" ng-value="{{dispositivo}}">{{dispositivo.name}}</md-option>
-                              </md-select>
-                            </small>
-                            <label>{{dispositivoSeleccionado.name}}</label>
-                          </div>
-                          <br>
-                          <br>
-                          <br>
-                          <div class="col-md-7">
-                            <small class="md-caption">Total de solicitudes enviadas: {{lstDevicesnodisponibles.length}}</small>
-                          </div>
-                        </div>
+                         <div layout="row">
+      <md-input-container style="margin-right: 10px;">
+        <label>Size</label>
+        <md-select ng-model="size">
+          <md-option ng-repeat="dispositivo in lstDeviceGeotab" value="{{size}}">{{size}}</md-option>
+        </md-select>
+      </md-input-container>
                         <!--nuevo-->
                       </div>
                     </center>
