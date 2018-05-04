@@ -372,8 +372,8 @@
                          <div layout="row">
       <md-input-container style="margin-right: 10px;">
         <label>Size</label>
-        <md-select ng-model="size">
-          <md-option ng-repeat="dispositivo in lstDeviceGeotab" value="{{size}}">{{size}}</md-option>
+        <md-select ng-model="dispositivoSeleccionado">
+          <md-option ng-repeat="dispositivo in lstDeviceGeotab" | filter: busqueda " ng-value="{{dispositivo}} ">{{dispositivo.name}}/md-option>
         </md-select>
       </md-input-container>
                         <!--nuevo-->
