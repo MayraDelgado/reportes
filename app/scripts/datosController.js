@@ -166,7 +166,22 @@ var angularObj = {
                 return moment(date).format('MM-DD-YYYY');
             }
         });
-
+angularObj.app.directive('myOnFocus', function () {
+            return {
+                scope: true,
+                restrict: 'A',
+                link: function (scope, elem, attr, ctrl) {
+                    elem.bind('focus', function () {
+                        if (scope[attr.myOnFocus]) {
+                            elem.triggerHandler('click');
+                        }
+                    });
+                    elem.bind('blur', function () {
+                        scope[attr.myOnFocus] = true;
+                    });
+                }
+            };
+        });
 
     }
 }
