@@ -256,3 +256,10 @@ md-content {
     color: rgba(255, 255, 255, 0.87);
     border-color: transparent;
 }
+element.style {
+    left: 8px;
+    top: 159px;
+    min-width: 392.063px;
+    font-size: 12px;
+    display: none;
+}
