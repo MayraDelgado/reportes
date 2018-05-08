@@ -160,7 +160,7 @@ var angularObj = {
                 return moment(date).format('MM-DD-YYYY');
             }
         });
- app.directive('myOnFocus', function() {
+ angularObj.app.directive('myOnFocus', function() {
 			return {
 				scope: true,
 				restrict: 'A',
