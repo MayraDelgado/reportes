@@ -3,7 +3,7 @@ var angularObj = {
     app: null,
     initAngular: function (api, freshState) {
         angularObj.app = angular.module('myAplicacion', ['ngMaterial', 'material.components.expansionPanels', 'md.data.table']);
-        angularObj.app.controller('accesoDatosController', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
+        angularObj.app.controller('accesoDatosController', ['$scope', '$filter', '$http','$mdSelect', function ($scope, $filter, $http, $mdSelect) {
             $scope.lstDeviceGeotab = [];
             $scope.dispositivoSeleccionado = [];
             $scope.lstDevice = {};            
