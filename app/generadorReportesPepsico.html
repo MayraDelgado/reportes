@@ -359,8 +359,8 @@
                           <small class="md-caption ">
                             <md-select multiple name="field " ng-model="dispositivoSeleccionado
                               " placeholder="Buscar Vehículos... " data-md-container-class="selectdemoSelectHeader " ng-init="showOptions = true"
-                              my-on-focus="showOptions" md-on-close="showOptions=false">
-                              <md-select-header layout="column " class="demo-select-header " id="divFechas ">
+                              my-on-focus="showOptions" md-on-close="showOptions=true">
+                              <md-select-header layout="column " class="demo-select-header ">
                                 <md-input-container>
                                   <input ng-model="busqueda " type="search " ng-model-options="{debounce: { 'default': 1000,
                               'blur': 0}} " placeholder="Buscar Vehículos... " class="demo-header-searchbox md-text " ng-keydown="updateSearch($event) "
