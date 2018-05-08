@@ -58,7 +58,7 @@
     -webkit-transform: scale(1);
             transform: scale(1); }
 
-
+/*
 .md-select-menu-container {
     position: fixed;
     left: 0;
@@ -73,7 +73,7 @@
     -webkit-transform: scale(1);
             transform: scale(1);
 }
-
+*/
 element.style {
     display: none;
     left: 8px;
