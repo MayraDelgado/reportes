@@ -3,7 +3,7 @@ var angularObj = {
     app: null,
     initAngular: function (api, freshState) {
         angularObj.app = angular.module('myAplicacion', ['ngMaterial', 'material.components.expansionPanels', 'md.data.table']);
-        angularObj.app.controller('accesoDatosController', ['$scope', '$filter', '$http','$mdSelect', function ($scope, $filter, $http, $mdSelect) {
+        angularObj.app.controller('accesoDatosController', ['$scope', '$filter', '$http','$mdSelect', '$window', function ($scope, $filter, $http, $mdSelect,$window) {
             $scope.lstDeviceGeotab = [];
             $scope.dispositivoSeleccionado = [];
             $scope.lstDevice = {};            
@@ -15,6 +15,11 @@ var angularObj = {
                 end: new Date()
 
             };
+            
+             $window.addEventListener('click', function (e) {
+                $mdSelect.hide();
+            });
+            
             $scope.currentPage = 0;
             $scope.pageSize = 10;
             $scope.data = [];
