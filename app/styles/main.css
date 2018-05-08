@@ -256,11 +256,4 @@ md-content {
     color: rgba(255, 255, 255, 0.87);
     border-color: transparent;
 }
-.md-select-menu-container {
-    z-index: 900;
-}
-
-md-backdrop.md-select-backdrop {
-    z-index: 899;
-}
 
