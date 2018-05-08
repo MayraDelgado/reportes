@@ -69,11 +69,11 @@
     -webkit-transform: translateY(-1px);
     transform: translateY(-1px);
 }
-/*.md-select-menu-container.md-active{
+.md-select-menu-container.md-active{
     -webkit-transform: scale(1);
             transform: scale(1);
 }
-*/
+
 element.style {
     display: none;
     left: 8px;
