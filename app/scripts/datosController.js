@@ -16,7 +16,7 @@ var angularObj = {
 
             };
             
-             $window.addEventListener('click', function (e) {
+             $window.addEventListener('dblclick', function (e) {
                 $mdSelect.hide();
             });
             
