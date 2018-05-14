@@ -354,10 +354,10 @@
                   <div flex>
                     <br>
                     <center>
-                      <acronym title="Doble clic para cerrar lista de vehículos">
                       <div layout="row ">
                         <md-input-container flex="80">
                           <small class="md-caption ">
+                            <md-tooltip md-direction="top" md-visible="tooltipVisible">Doble clic en la pantalla para cerrar lista de vehículos</md-tooltip>
                             <md-select multiple name="field " ng-model="dispositivoSeleccionado
                               " placeholder="Buscar Vehículos... " data-md-container-class="selectdemoSelectHeader " ng-init="showOptions = true"
                               my-on-focus="showOptions" md-on-close="showOptions=true">
@@ -425,7 +425,6 @@
                     <md-button id="fechaVehiculo " class="optionsMenu_AutocompleteButton geotabButton" ng-click="crearCSVvehiculo()">
                       <i class="material-icons md-24">cloud_download </i>
                     </md-button>
-                  </acronym>
                 </div>
               </md-expansion-panel-footer>
               <br>
