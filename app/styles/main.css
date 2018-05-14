@@ -256,4 +256,6 @@ md-content {
     color: rgba(255, 255, 255, 0.87);
     border-color: transparent;
 }
-
+md-tooltip { 
+z-index: 99999! important; 
+}
