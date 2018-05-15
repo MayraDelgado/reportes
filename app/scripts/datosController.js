@@ -31,17 +31,19 @@ var angularObj = {
             $scope.numberOfPages = function () {
                 return Math.ceil($scope.getData().length / $scope.pageSize);
             }
-            // api call vehiculos geotab
-            api.call("Get", {
-                typeName: "Device"
-            }, function (result) {
-                $scope.lstDeviceGeotab = result;
+             $http({
+                method: 'GET',
+                url: 'https://cppa.metricamovil.com/GeneradordeReportes/Getautenticacion'
+            }).then(function successCallback(response) {
+                console.log(response);
+                $scope.lstDeviceGeotab = response.data;
                 $scope.lstDeviceGeotab.forEach(function (device) {
                     $scope.lstDevice.id = device;
-                    //console.log(device);
-                }); //console.log(device);
-            }, function (error) {
-                console.log(error.message);
+                })
+            }, function errorCallback(response) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                console.log(response);
             });
 
             // funcion que permite ingresar texto en el search 
