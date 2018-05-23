@@ -279,11 +279,12 @@
                       <th md-column md-numeric>Id</th>
                       <!--th md-column md-numeric>VIN </th>
                       <th md-column md-numeric>Económico </th-->
-                      <th md-column md-numeric>Numero de serie</th>
-                      <th md-column md-numeric>Ultima comunicacion Geotab</th>
+                      <!--th md-column md-numeric>Numero de serie</th>
+                      <th md-column md-numeric>Ultima comunicacion Geotab</th-->
+                      <th md-column md-numeric>sunTech Id</th>
                       <th md-column md-numeric>Fecha inicio de consulta</th>
                       <th md-column md-numeric>Fecha fin de consulta</th>
-                      <th md-column md-numeric>Geotab boton de panico</th>
+                      <!--th md-column md-numeric>Geotab boton de panico</th>
                       <th md-column md-numeric>Cinturon de seguridad</th>
                       <th md-column md-numeric>Reversa</th>
                       <th md-column md-numeric>Aux 5</th>
@@ -291,21 +292,22 @@
                       <th md-column md-numeric>Aux 7</th>
                       <th md-column md-numeric>Aux 8</th>
                       <th md-column md-numeric>Circulo de seguridad</th>
-                      <th md-column md-numeric>sunTech Id</th>
+                      <th md-column md-numeric>sunTech Id</th-->
                       <th md-column md-numeric>sunTech Boton de panico</th>
                       <th md-column md-numeric>Llamada en cabina</th>
                     </tr>
                   </thead>
                   <tbody md-body>
                     <tr md-row md-select-id="name" md-auto-select ng-repeat="dispositivo in resultReporteFechas">
-                      <td md-cell>{{dispositivo.GOId}}</td>
+                      <!--td md-cell>{{dispositivo.GOId}}</td-->
                       <!--td md-cell>{{dispositivo.vehicleIdentificationNumber}}</td>
                       <td md-cell>{{dispositivo.name}}</td-->
-                      <td md-cell>{{dispositivo.GOSerialNumber}}</td>
-                      <td md-cell>{{dispositivo.LastCommunication}}</td>
+                      <!--td md-cell>{{dispositivo.GOSerialNumber}}</td>
+                      <td md-cell>{{dispositivo.LastCommunication}}</td-->
+                      <td md-cell>{{dispositivo.SunTechId}}</td>
                       <td md-cell>{{Data.start}}</td>
                       <td md-cell>{{Data.end}}</td>
-                      <td md-cell>{{dispositivo.GOPanicButton}}</td>
+                      <!--td md-cell>{{dispositivo.GOPanicButton}}</td>
                       <td md-cell>{{dispositivo.GOBelt}}</td>
                       <td md-cell>{{dispositivo.GOReverse}}</td>
                       <td md-cell>{{dispositivo.GOButton1}}</td>
@@ -313,7 +315,7 @@
                       <td md-cell>{{dispositivo.GOButton3}}</td>
                       <td md-cell>{{dispositivo.GOButton4}}</td>
                       <td md-cell>{{dispositivo.GOSafetyCircle}}</td>
-                      <td md-cell>{{dispositivo.SunTechId}}</td>
+                      <td md-cell>{{dispositivo.SunTechId}}</td-->
                       <td md-cell>{{dispositivo.SunTechPanicButton}}</td>
                       <td md-cell>{{dispositivo.SunTechCalls}}</td>
                     </tr>
