@@ -32,7 +32,7 @@ var angularObj = {
             $scope.numberOfPages = function () {
                 return Math.ceil($scope.getData().length / $scope.pageSize);
             }
-             $http({
+            /*Autenticacion Pepsi $http({
                 method: 'GET',
                 url: 'https://cppa.metricamovil.com/GeneradordeReportes/Getautenticacion'
             }).then(function successCallback(response) {
@@ -45,6 +45,18 @@ var angularObj = {
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
                 console.log(response);
+            });*/
+            api.call("Get", {
+                "typeName": "Device"
+            }, function (result) {
+                $scope.lstDeviceGeotab = result;
+                $scope.lstDeviceGeotab.forEach(function (device) {
+                    $scope.$apply(function () {
+                        $scope.lstDevice.id = device.id;
+                    })
+                })
+            }, function (e) {
+                console.error("Failed:", e.message);
             });
 
             // funcion que permite ingresar texto en el search 
