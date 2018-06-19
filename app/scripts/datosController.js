@@ -13,8 +13,9 @@ var angularObj = {
             $scope.Data = {
                 start: new Date(),
                 end: new Date()
-
             };
+            $scope.eventos = [];
+
             
              $window.addEventListener('dblclick', function (e) {
                 $mdSelect.hide();
@@ -53,7 +54,7 @@ var angularObj = {
 
             $scope.getDevice = function (device) {
                 try {
-                    //$scope.dispositivoSeleccionado = device;
+                    $scope.dispositivoSeleccionado = device;
                     $scope.$apply();
 
                 } catch (error) {
@@ -86,7 +87,82 @@ var angularObj = {
 
                 });
             }
-             $scope.vehiculosreport = function () {
+            $scope.consultaVehiculos = function () {
+                try {
+                    $scope.dispositivoSeleccionadoAux = this.dispositivoSeleccionado;
+                    if ($scope.dispositivoSeleccionadoAux.length === 0) {
+                        swal({
+                            type: 'error',
+                            text: 'Debes seleccionar un vehículo para continuar la consulta.'
+                        });
+                    }
+
+                    if ($scope.dispositivoSeleccionadoAux.length > 0) {
+                        swal({
+                            imageUrl: '../img/cargando5.gif',
+                            timer: 5000,
+                            showConfirmButton: false
+                        });
+                        $scope.listIds = [];
+                        $scope.dispositivoSeleccionadoAux.forEach(function (dispositivo) {
+                            $scope.listIds.push(dispositivo.id);
+                        });
+                        $scope.ultimaComunicacion = [];
+                        var calls = $scope.getCalls($scope.listIds[0]);
+
+                        //api call
+                        api.multiCall(calls, function (results) {
+                            console.log(results);
+
+                            var totalEventos = {};
+
+                            var btnPanico = results[0].filter(function (panico) {
+                                return panico.data === 1
+                            }).length;
+                            totalEventos.btnPanico = btnPanico;
+                            var btnCinturon = results[1].filter(function (cinturon) {
+                                return cinturon.data === 1
+                            }).length;
+                            totalEventos.btncinturon = btnCinturon;
+                            var btnReversa = results[2].filter(function (reversa) {
+                                return reversa.data === 1
+                            }).length;
+                            totalEventos.btnReversa = btnReversa;
+                            var btnCirculo5 = results[3].filter(function (circulo5) {
+                                return circulo5.data === 1
+                            }).length;
+                            totalEventos.btnCirculo5 = btnCirculo5;
+                            var btnCirculo6 = results[4].filter(function (circulo6) {
+                                return circulo6.data === 1
+                            }).length;
+                            totalEventos.btncirculo6 = btnCirculo6;
+                            var btnCirculo7 = results[5].filter(function (circulo7) {
+                                return circulo7.data === 1
+                            }).length;
+                            totalEventos.btncirculo7 = btnCirculo7;
+                            var btnCirculo8 = results[6].filter(function (circulo8) {
+                                return circulo8.data === 1
+                            }).length;
+                            totalEventos.btncirculo8 = btnCirculo8;
+                            totalEventos.comunicacion = results[7][0].dateTime;
+
+                            totalEventos.ids = $scope.listIds[0];
+                            totalEventos.serialNumber = $scope.dispositivoSeleccionadoAux[0].serialNumber;
+                            totalEventos.vehicleIdentificationNumber = $scope.dispositivoSeleccionadoAux[0].vehicleIdentificationNumber;
+                            totalEventos.name = $scope.dispositivoSeleccionadoAux[0].name;
+                            totalEventos.circuloSeguridad = "ok"
+                            $scope.eventos.push(totalEventos);
+                            $scope.$apply();
+                        }, function (e) {
+                            console.log(e.message);
+                        });
+                    }
+
+                } catch (error) {
+                    console.log(error.message);
+                }
+            }
+             /*$scope.vehiculosreport = function () {
                 var dispositivoSeleccionadoAux = this.dispositivoSeleccionado;
                   if (dispositivoSeleccionadoAux.length === 0) {
                     swal({
@@ -127,7 +203,7 @@ var angularObj = {
                         });
                     });
                 }
-            }
+            }*/
              $scope.crearCSVFechas = function () {
                if ($scope.resultReporteFechas.length === 0) {
                     swal(
@@ -145,7 +221,7 @@ var angularObj = {
             }
              
             $scope.crearCSVvehiculo = function () {
-                if ($scope.resultConsultaVehiculos.length === 0) {
+                if ($scope.eventos.length === 0) {
                     swal(
                         '',
                         'No hay datos que descargar',
@@ -157,6 +233,54 @@ var angularObj = {
                     $("#fechaDevice").table2excel({
                         filename: "AuditoríadeRegistros_Dispositivos"
                     });
+                }
+            }
+            $scope.getCalls = function (deviceId) {
+                try {
+                    var ids = [
+                        "diagnosticAux1Id",
+                        "diagnosticAux2Id",
+                        "diagnosticAux3Id",
+                        "diagnosticAux5Id",
+                        "diagnosticAux6Id",
+                        "diagnosticAux7Id",
+                        "diagnosticAux8Id",
+                    ];
+                    var calls = [];
+
+                    ids.forEach(function (id) {
+                        calls.push(
+                            ["Get", {
+                                "typeName": "StatusData",
+                                "search": {
+                                    "deviceSearch": {
+                                        "id": deviceId
+                                    },
+                                    "diagnosticSearch": {
+                                        "id": id
+                                    },
+                                    "fromDate": moment($scope.Data.start).format('YYYY-MM-DD') + " 05:00:00",
+                                    "toDate": moment($scope.Data.end).add(1, 'd').format('YYYY-MM-DD') + " 05:00:00"
+                                }
+                            }]);
+                    });
+                    calls.push(
+                        ["Get", {
+                            "typeName": "LogRecord",
+                            "search": {
+                                "deviceSearch": {
+                                    "id": deviceId
+                                },
+                                "fromDate": moment($scope.Data.start).format(),
+                                "toDate": moment($scope.Data.end).format()
+                            },
+                            "resultsLimit": 1
+                        }]
+                    )
+                    return calls;
+                } catch (error) {
+                    console.log(error.message);
+                    return error;
                 }
             }
 
