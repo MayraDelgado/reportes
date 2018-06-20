@@ -170,7 +170,8 @@ var angularObj = {
                             swal({
                                 imageUrl: 'https://rawgit.com/MayraDelgado/GeneradorReportes/master/app/img/cargando5.gif',
                                 timer: 2000,
-                                showConfirmButton: false
+                                showConfirmButton: false,
+                                background: 'rgba(100,100,100,0)'
                             });
                         });
                     }
