@@ -168,8 +168,8 @@ var angularObj = {
                         $scope.dispositivoSeleccionadoAux.forEach(function (dispositivo) {
                             $scope.consultaDatos(dispositivo.id);
                             swal({
-                                imageUrl: 'https://rawgit.com/MayraDelgado/GeneradorReportes/master/app/img/cargando3.gif',
-                                timer: 5000,
+                                imageUrl: 'https://rawgit.com/MayraDelgado/GeneradorReportes/master/app/img/cargando5.gif',
+                                timer: 2000,
                                 showConfirmButton: false
                             });
                         });
