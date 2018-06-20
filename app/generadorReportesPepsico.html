@@ -338,14 +338,14 @@
         <md-expansion-panel md-component-id="panelOne">
           <md-expansion-panel-collapsed>
             <div class="md-summary" style="color:rgb(37, 71, 123)">
-              <font size="3">CONSULTA POR VEHÍCULO</font>
+              <font size="3">CONSULTA POR VEHÍCULOS</font>
             </div>
             <md-expansion-panel-icon></md-expansion-panel-icon>
           </md-expansion-panel-collapsed>
           <md-expansion-panel-expanded>
             <md-expansion-panel-header>
               <div class="md-summary" style="color:rgb(37, 71, 123)">
-                <font size="3">CONSULTA POR VEHÍCULO</font>
+                <font size="3">CONSULTA POR VEHÍCULOS</font>
               </div>
               <md-expansion-panel-icon></md-expansion-panel-icon>
             </md-expansion-panel-header>
@@ -433,7 +433,7 @@
               <!--fin btn consultar-->
               <md-table-container>
                 <!--ng-model="selected" esto va en la tabla-->
-                <table md-table md-row-select md-progress="promise" id="fechaDevice">
+                <table md-table ng-model="selected" md-row-select md-progress="promise" id="fechaDevice" style="width:100%">
                  <thead md-head>
                     <tr md-row> 
                       <th md-column md-numeric>Id</th>
@@ -450,7 +450,6 @@
                       <th md-column md-numeric>Aux 6</th>
                       <th md-column md-numeric>Aux 7</th>
                       <th md-column md-numeric>Aux 8</th>
-                      <th md-column md-numeric>Circulo de seguridad</th>
                       <th md-column md-numeric>sunTech Id</th>
                       <th md-column md-numeric>sunTech Boton de panico</th>
                       <th md-column md-numeric>Llamada en cabina</th>
@@ -462,9 +461,9 @@
                       <td md-cell>{{totalEventos.vehicleIdentificationNumber}}</td>
                       <td md-cell>{{totalEventos.name}}</td>
                       <td md-cell>{{totalEventos.serialNumber}}</td>
-                      <td md-cell>{{totalEventos.comunicacion}}</td>
-                      <td md-cell>{{Data.start}}</td>
-                      <td md-cell>{{Data.end}}</td>
+                      <td md-cell>{{totalEventos.comunicacion | date : "yyyy-MM-dd HH:mm:ss"}}</td>
+                      <td md-cell>{{Data.start | date : "yyyy-MM-dd HH:mm:ss"}}</td>
+                      <td md-cell>{{Data.end | date : "yyyy-MM-dd HH:mm:ss"}}</td>
                       <td md-cell>{{totalEventos.btnPanico}}</td>
                       <td md-cell>{{totalEventos.btncinturon}}</td>
                       <td md-cell>{{totalEventos.btnReversa}}</td>
@@ -472,7 +471,6 @@
                       <td md-cell>{{totalEventos.btncirculo6}}</td>
                       <td md-cell>{{totalEventos.btncirculo7}}</td>
                       <td md-cell>{{totalEventos.btncirculo8}}</td>
-                      <td md-cell>{{totalEventos.circuloSeguridad}}</td>
                       <td md-cell>{{dispositivo.SunTechId}}</td>
                       <td md-cell>{{dispositivo.SunTechPanicButton}}</td>
                       <td md-cell>{{dispositivo.SunTechCalls}}</td>
