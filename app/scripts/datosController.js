@@ -20,7 +20,7 @@ var angularObj = {
              $window.addEventListener('dblclick', function (e) {
                 $mdSelect.hide();
             });
-            
+            $scope.selected = [];
             $scope.currentPage = 0;
             $scope.pageSize = 10;
             $scope.data = [];
