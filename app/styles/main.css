@@ -259,3 +259,7 @@ md-content {
 md-tooltip { 
 z-index: 99999! important; 
 }
+md-content.md-default-theme, md-content {
+    color: rgb(37, 71, 123);
+    background-color: rgba(253, 250, 250, 0.71);
+}
