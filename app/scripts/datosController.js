@@ -169,7 +169,7 @@ var angularObj = {
                             $scope.consultaDatos(dispositivo.id);
                             swal({
                                 imageUrl: 'https://rawgit.com/MayraDelgado/GeneradorReportes/master/app/img/cargando5.gif',
-                                timer: 1000,
+                                timer: 2000,
                                 showConfirmButton: false,
                                 background: 'rgba(100,100,100,0)'
                             });
