@@ -142,7 +142,7 @@ var angularObj = {
                             return circulo8.data === 1
                         }).length;
                         totalEventos.btncirculo8 = btnCirculo8;
-                        totalEventos.comunicacion = results[7][0].dateTime;
+                        totalEventos.comunicacion = results[7][0];
 
                         totalEventos.ids = deviceId;
                         totalEventos.serialNumber = vehiculos[deviceId].serialNumber;
