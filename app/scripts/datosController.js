@@ -41,9 +41,8 @@ var angularObj = {
                 $scope.lstDeviceGeotab = response.data;
                 $scope.lstDeviceGeotab.forEach(function (device) {
                     vehiculos[device.id] = device;
-                    $scope.$apply(function () {
                         $scope.lstDevice.id = device.id;
-                    })
+                    
                 })
             }, function errorCallback(response) {
                 // called asynchronously if an error occurs
