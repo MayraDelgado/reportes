@@ -266,7 +266,7 @@ var angularObj = {
                         $scope.dispositivoSeleccionadoAux.forEach(function (dispositivo) {
                             $scope.consultaDatos(dispositivo.id);
                             swal({
-                                imageUrl: '../img/cargando5.gif',
+                                imageUrl: 'https://rawgit.com/MayraDelgado/GeneradorReportes/master/app/img/cargando5.gif',
                                 timer: 8000,
                                 showConfirmButton: false
                             });
