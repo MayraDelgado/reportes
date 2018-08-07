@@ -450,13 +450,13 @@
                       <th md-column md-numeric>Aux 6</th>
                       <th md-column md-numeric>Aux 7</th>
                       <th md-column md-numeric>Aux 8</th>
-                      <th md-column md-numeric>sunTech Id</th>
+                      <th md-column md-numeric>IMEI cut</th>
                       <th md-column md-numeric>sunTech Boton de panico</th>
                       <th md-column md-numeric>Llamada en cabina</th>
                     </tr>
                   </thead>
                   <tbody md-body>
-                    <tr md-row md-select-id="name" md-auto-select ng-repeat="totalEventos in eventos" | filter: q track by $index">
+                    <tr md-row md-select-id="name" md-auto-select ng-repeat="totalEventos in eventos" track by $index">
                       <td md-cell>{{totalEventos.ids}}</td>
                       <td md-cell>{{totalEventos.vehicleIdentificationNumber}}</td>
                       <td md-cell>{{totalEventos.name}}</td>
@@ -471,9 +471,9 @@
                       <td md-cell>{{totalEventos.btncirculo6}}</td>
                       <td md-cell>{{totalEventos.btncirculo7}}</td>
                       <td md-cell>{{totalEventos.btncirculo8}}</td>
-                      <td md-cell>{{dispositivo.SunTechId}}</td>
-                      <td md-cell>{{dispositivo.SunTechPanicButton}}</td>
-                      <td md-cell>{{dispositivo.SunTechCalls}}</td>
+                      <td md-cell>{{totalEventos.idSuntech}}</td>
+                      <td md-cell>{{totalEventos.panicoSuntech}}</td>
+                      <td md-cell>{{totalEventos.llamadas}}</td>
                     </tr>
                   </tbody>
                 </table>
