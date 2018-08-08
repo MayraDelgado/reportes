@@ -211,7 +211,7 @@ var angularObj = {
                             console.log(response);
                             $scope.resultApi = response.data;
                             totalEventos.btncirculo8 = btnCirculo8;
-                            totalEventos.comunicacion = results[7][0].dateTime;
+                            totalEventos.comunicacion = results[7][0].lastCommunication;
 
                             totalEventos.ids = deviceId;
                             totalEventos.serialNumber = vehiculos[deviceId].serialNumber;
