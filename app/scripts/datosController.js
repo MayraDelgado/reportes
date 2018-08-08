@@ -42,7 +42,7 @@ var angularObj = {
                 method: 'GET',
                 url: 'https://cppa.metricamovil.com/GeneradordeReportes/Getautenticacion'
             }).then(function successCallback(response) {
-                console.log(response);
+                //console.log(response);
                 $scope.lstDeviceGeotab = response.data;
                 $scope.lstDeviceGeotab.forEach(function (device) {
                     vehiculos[device.id] = device;
