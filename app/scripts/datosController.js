@@ -38,7 +38,7 @@ var angularObj = {
                 return Math.ceil($scope.getData().length / $scope.pageSize);
             }
             /*Autenticacion Pepsi*/
-            /*$http({
+            $http({
                 method: 'GET',
                 url: 'https://cppa.metricamovil.com/GeneradordeReportes/Getautenticacion'
             }).then(function successCallback(response) {
@@ -54,8 +54,8 @@ var angularObj = {
                 // or server returns response with an error status.
                 console.log(response);
             });
-            */
-           api.call("Get", {
+            
+           /*api.call("Get", {
                 "typeName": "Device",
                "search": {
                "name": "42146-5"}
@@ -69,7 +69,7 @@ var angularObj = {
                 })
             }, function (e) {
                 console.error("Failed:", e.message);
-            });
+            });*/
 
             // funcion que permite ingresar texto en el search 
             $scope.updateSearch = function updateSearch(e) {
